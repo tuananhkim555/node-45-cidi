@@ -1,0 +1,26 @@
+# Đặt tên
+
+name: CI docker
+
+# Khi nào chạy
+on:
+    push:
+        branches: ["main"]
+
+# Chạy công việc gì
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps: 
+            - uses: actions/checkout@v4
+            - name: Đăng nhập docker
+              run: docker login -u tuananhkim -p ${{secrets.PASS_DOCKER}}
+
+            - name: build 
+              run: docker build . -t tuananhkim/img-aligo_media:latest
+
+            - name: push image lên docker hub
+              run: docker push tuananhkim/img-aligo_media:latest
+
+
