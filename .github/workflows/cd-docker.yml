@@ -1,0 +1,38 @@
+# đặt tên
+name: CD docker
+
+# khi nào chạy
+on:
+    workflow_run:
+        workflows: ["CI docker"]
+        types:
+            - completed
+
+
+# chạy công việc gì
+jobs:
+    build:
+        runs-on: node_46
+
+        steps:
+            - name: Xóa file .env đã cũ
+              run: sudo rm -f .env
+
+            - name: tạo file .env mới
+              run: |
+                  echo "DATABASE_URL=mysql://root:1234@some-mysql-compose:3306/bd_aligo_media" >> .env
+                  echo "ACCESS_TOKEN_SECRET=ACCESS_TOKEN_KHOA_BI_MAT" >> .env
+                  echo "ACCESS_TOKEN_EXPIRES=15m" >> .env
+                  echo "REFRESH_TOKEN_SECRET=REFRESH_TOKEN_KHOA_BI_MAT" >> .env
+                  echo "REFRESH_TOKEN_EXPIRES=7d" >> .env
+
+            - name: dừng và xóa container BE
+              run: |
+                  sudo docker container stop cons-be-aligo-media || true
+                  sudo docker container remove cons-be-aligo-media || true
+
+            - name: xóa image be cũ
+              run: sudo docker image remove tuananhkim/img-aligo_media:latest
+
+            - name: chạy lại với docker compose
+              run: docker compose up -d

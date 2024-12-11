@@ -84,4 +84,30 @@
  * chạy lại container
  * docker container restart 015a04f640fa
  * 
+ * Lỗi: exec format error
+ * - sai kiến trúc
+ * 
+ * xoa file 
+ * sudo rm ten_file
+ * 
+ * xoa folder
+ * sudo rmdir ten_file
+ *
+ * xóa action-runner nếu chạy lỗi và muốn chạy lại
+ *  sudo rm -rf /home/ubuntu/action-runner
+ * 
+ * 
+ * Enter the name of the runner group to add this runner to: [press Enter for Default] 
+ * -> để enter để chọn default
+ * 
+ * This runner will have the following labels: 'self-hosted', 'Linux', 'X64' 
+Enter any additional labels (ex. label-1,label-2): [press Enter to skip] 
+ -> thiết lập tên lable: chọn runs-on trong cd-docker.yml
+
+ Enter name of work folder: [press Enter for _work] 
+ => enter để chọn default
+
+
+    sudo ./svc.sh install
+    sudo ./svc.sh start
  */
