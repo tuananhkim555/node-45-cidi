@@ -2,7 +2,7 @@ version: "3"
 
 services:
   be-compose:
-    image: img-aligo_media
+    image: tuananhkim/img-aligo_media:latest
     container_name: cons-be-aligo-media
     ports:
       - "3070:3069"
