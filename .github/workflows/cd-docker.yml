@@ -32,7 +32,7 @@ jobs:
                   sudo docker container remove cons-be-aligo-media || true
 
             - name: xóa image be cũ
-              run: sudo docker image remove tuananhkim/img-aligo_media:latest
+              run: sudo docker image remove tuananhkim/img-aligo_media:latest || true
 
             - name: chạy lại với docker compose
               run: docker compose up -d
