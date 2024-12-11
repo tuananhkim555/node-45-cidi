@@ -21,8 +21,6 @@ const server = createServer(app);
 
 
 
-
-
 // sử dụng middleware chuyển JSON sang đối tượng JS (object, ...)
 // sử dụng với body -
 app.use(express.json());
