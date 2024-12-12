@@ -21,8 +21,8 @@ const server = createServer(app);
 
 
 
-// sử dụng middleware chuyển JSON sang đối tượng JS (object, ...)
-// sử dụng với body -
+// sử dụng middleware chuyển JSON sang đai tượng JS (object, ...)
+// sử dụng với body a
 app.use(express.json());
 
 app.use(cors({
