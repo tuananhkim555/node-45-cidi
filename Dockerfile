@@ -1,7 +1,13 @@
 # alpine : chỉ định phiên bản rút gọn (~5mb)
-FROM node:alpine
-
+# FROM node:alpine
+# RUN apt-get update -y
+# RUN apt-get install -y openssl
 # thiết lập đường dẫn
+
+
+FROM node:20.1.0-alpine
+
+
 WORKDIR /home/app
 
 COPY package*.json .
