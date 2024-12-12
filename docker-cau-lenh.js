@@ -110,4 +110,62 @@ Enter any additional labels (ex. label-1,label-2): [press Enter to skip]
 
     sudo ./svc.sh install
     sudo ./svc.sh start
+
+Dấu PORT
+khi truy cập vào bất kể trang web nào thì mặc định công 80
+nginx sẽ bắt tất cả các công 80 vào port của mình
+gitbub.com => cổng 80 rồi chuyển qua => PORT: 3070
+   - cài nginx
+      sudo apt update
+      sudo apt install nginx
+
+   sudo nano /etc/nginx/sites-available/default
+
+   ctrl + k để xóa nhanh từng dòng
+
+ */
+
+// server {
+//    listen 80;
+//    server_name 13.212.168.30; # Subdomain cho API
+//    #server_name domain 
+   
+//    location / {
+//       proxy_pass http://localhost:3070;
+//       proxy_http_version 1.1;
+//       proxy_set_header Upgrade $http_upgrade;
+//       proxy_set_header Connection 'upgrade';
+//       proxy_set_header Host $host;
+//       proxy_set_header X-Real-IP $remote_addr;
+//       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+//       proxy_set_header X-Forwarded-Proto $scheme;
+//    }
+
+//    location /socket.io/ {
+//       proxy_pass http://localhost:3070;
+//       proxy_http_version 1.1;
+//       proxy_set_header Upgrade $http_upgrade;
+//       proxy_set_header Connection "upgrade";
+//       proxy_set_header Host $host;
+//       proxy_set_header X-Real-IP $remote_addr;
+//       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+//       proxy_set_header X-Forwarded-Proto $scheme;
+//       proxy_buffering off;
+//       proxy_cache off;
+//       proxy_read_timeout 86400s;
+//       proxy_send_timeout 86400s;
+
+//    }
+// }
+
+/**
+ * 
+ * - chạy kiểm tra nginx
+ *  sudo nginx -t
+ * 
+ * - khởi động lại nginx
+ *    sudo systemctl restart nginx
+ * 
+ * mở port 80 trong security aws
+ * 
  */
