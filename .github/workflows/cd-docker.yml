@@ -12,7 +12,7 @@ on:
 # chạy công việc gì
 jobs:
     build:
-        runs-on: node~45
+        runs-on: node_45_1
 
         steps:
             - name: Xóa file .env đã cũ
