@@ -20,7 +20,7 @@ const videoController = {
       try {
          const result = await videoService.listVideo(req);
 
-         const resData = responseSuccess(result, `Lấy danh sách video thành công okmen`)
+         const resData = responseSuccess(result, `Lấy danh sách video thành công okmen 123`)
    
          res.status(resData.code).json(resData);
       } catch (error) {
